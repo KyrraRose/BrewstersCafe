@@ -34,12 +34,15 @@ public class Inventory {
 
         // drinks with descriptions, as a map
          drinkTypesDescription = new HashMap(){{
-                      put("Latte", "Rich espresso balanced with steamed milk and a light layer of foam. Available Hot, Iced, or Frozen.");
-                      put("Siphon Coffee", "Full-bodied coffee brewed with hot water through a siphon. Available Hot, Iced, or Frozen.");
-                      put("Tea", "Smooth, earthy teas brewed gently with hot water. Milk optional. Available Hot or Iced.");
-                     put("Steamer", "Comforting warm,steamed milk with optional flavors. Available Hot, Iced, or Frozen.");
-                 }};
+             put("Latte", "Rich espresso balanced with steamed milk and a light layer of foam. Available Hot, Iced, or Frozen.");
+             put("Siphon Coffee", "Full-bodied coffee brewed with hot water through a siphon. Available Hot, Iced, or Frozen.");
+             put("Tea", "Smooth, earthy teas brewed gently with hot water. Milk optional. Available Hot or Iced.");
+             put("Steamer", "Comforting warm,steamed milk with optional flavors. Available Hot, Iced, or Frozen.");
+         }};
 
+    }
+    public HashMap<String,ArrayList<String>> getInventory(){
+        return inventory;
     }
 
     public void displayInventory(String type){
