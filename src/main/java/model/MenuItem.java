@@ -1,4 +1,4 @@
-package com.pluralsight;
+package model;
 
 public abstract class MenuItem {
     protected double price;
