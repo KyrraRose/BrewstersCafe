@@ -37,7 +37,7 @@ public class Tea extends Drink {
         this.addTeaBag = true;
         this.teaBags += numBags;
     }
-
+    @Override
     public double calculateTotal() {
         this.price = 0;
         switch(this.size){case "Small"->this.price=1;case "Medium"->this.price=1.5;case "Large"->this.price=2;}
@@ -52,9 +52,32 @@ public class Tea extends Drink {
         return this.price;
     }
 
-    @Override
-    public String displayDrink() {
+
+    public String displayItem() {
         StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Tea%n\t\t- %s",this.size,this.temp,this.base));
+        if (isSteamMilk()){
+            drink.append(String.format("%n\t\t- Steamed %s",this.milk));
+        }
+        if (this.addTeaBag){
+            drink.append(String.format("%n\t\t- %d Tea Bags",this.teaBags));
+        }
+
+        if (!this.syrup.isEmpty()){
+            for(String s :this.syrup){
+                drink.append(String.format("%n\t\t- %s",s));
+            }
+        }
+        if (!this.toppings.isEmpty()){
+            for(String t :this.toppings){
+                drink.append(String.format("%n\t\t- %s",t));
+            }
+        }
+
+        drink.append(String.format("%nDrink Total: $%.2f",calculateTotal()));
+        return drink.toString();
+    }
+    public String formatForReceipt() {
+        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Tea - $%.2f%n\t\t- %s",this.size,this.temp,calculateTotal(),this.base));
         if (isSteamMilk()){
             drink.append(String.format("%n\t\t- Steamed %s",this.milk));
         }

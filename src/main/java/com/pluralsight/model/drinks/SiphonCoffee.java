@@ -45,8 +45,8 @@ public class SiphonCoffee extends Drink {
         return this.price;
     }
 
-    @Override
-    public String displayDrink() {
+
+    public String displayItem() {
         StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Coffee%n\t\t- %s%n\t\t- %s",this.size,this.temp,this.base,this.milk));
         if (isRoomForCream()){
             drink.append(String.format("%n\t\t- Room for Cream"));
@@ -66,6 +66,26 @@ public class SiphonCoffee extends Drink {
         }
 
         drink.append(String.format("%n\tDrink Total: $%.2f",calculateTotal()));
+        return drink.toString();
+    }
+    public String formatForReceipt() {
+        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Coffee - $%.2f%n\t\t- %s%n\t\t- %s",this.size,this.temp,calculateTotal(),this.base,this.milk));
+        if (isRoomForCream()){
+            drink.append(String.format("%n\t\t- Room for Cream"));
+        }
+        if (isAddShot()){
+            drink.append(String.format("%n\t\t- %d Extra Shots +$%.2f",this.numShots,(.5*numShots)));
+        }
+        if (!this.syrup.isEmpty()){
+            for(String s :this.syrup){
+                drink.append(String.format("%n\t\t- %s",s));
+            }
+        }
+        if (!this.toppings.isEmpty()){
+            for(String t :this.toppings){
+                drink.append(String.format("%n\t\t- %s",t));
+            }
+        }
         return drink.toString();
     }
 

@@ -91,19 +91,5 @@ public abstract class Drink extends MenuItem {
         return this.price;
     }
 
-    public String displayDrink(){
-        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s%n\t\t- %s%n\t\t- %s%n\t\t- %s",this.temp,this.item,this.size,this.base,this.milk));
-        if (!this.syrup.isEmpty()){
-            for(String s :this.syrup){
-                drink.append(String.format("%n\t\t- %s",s));
-            }
-        }
-        if (!this.toppings.isEmpty()){
-            for(String t :this.toppings){
-                drink.append(String.format("%n\t\t- %s",t));
-            }
-        }
-        drink.append(String.format("%n\tDrink Total: $%.2f",this.price));
-        return drink.toString();
-    }
+
 }

@@ -35,8 +35,7 @@ public class Bagel extends Food {
         return this.price;
     }
 
-    @Override
-    public String displayFood() {
+    public String displayItem() {
         StringBuilder bagel = new StringBuilder(String.format("Food: %s %s%n\t\t",this.portionType,this.item));
         if (isToGo()){
             bagel.append(String.format("%n\t\t- To Go"));
@@ -49,4 +48,16 @@ public class Bagel extends Food {
         bagel.append(String.format("\t%nItem Total: $%.2f",calculateTotal()));
         return bagel.toString();
     }
+    public String formatForReceipt() {
+        StringBuilder bagel = new StringBuilder(String.format("Food: %s %s - $%.2f%n\t\t",this.portionType,this.item,calculateTotal()));
+        if (isToGo()){
+            bagel.append(String.format("%n\t\t- To Go"));
+        }else{
+            bagel.append(String.format("%n\t\t- For Here"));}
+        if (isToasted()){
+            bagel.append(String.format("%n\t\t- Toasted"));
+        }
+        return bagel.toString();
+    }
+
 }

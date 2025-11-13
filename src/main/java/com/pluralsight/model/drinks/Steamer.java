@@ -21,6 +21,7 @@ public class Steamer extends Drink {
         this.temp = temp;
         switch(temp){case"Iced"->this.item="Flavored Milk";case"Frozen"->this.item="Milkshake";}
     }
+    @Override
     public double calculateTotal() {
         this.price = 0;
         switch(this.size){case "Small"->this.price=1;case "Medium"->this.price=1.5;case "Large"->this.price=2;}
@@ -34,8 +35,8 @@ public class Steamer extends Drink {
         return this.price;
     }
 
-    @Override
-    public String displayDrink() {
+
+    public String displayItem() {
         StringBuilder drink = new StringBuilder(String.format("Drink: %s %s %s%n\t\t- %s%n\t\t- %s",this.size,this.temp,this.item,this.base,this.milk));
         if (isKidsTemp()){
             drink.append(String.format("%n\t\t- Kid's Temperature (180 Degrees)"));
@@ -53,6 +54,25 @@ public class Steamer extends Drink {
         }
 
         drink.append(String.format("\t%nDrink Total: $%.2f",calculateTotal()));
+        return drink.toString();
+    }
+    public String formatForReceipt() {
+        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s %s - $%.2f%n\t\t- %s%n\t\t- %s",this.size,this.temp,this.item,calculateTotal(),this.base,this.milk));
+        if (isKidsTemp()){
+            drink.append(String.format("%n\t\t- Kid's Temperature (180 Degrees)"));
+        }
+
+        if (!this.syrup.isEmpty()){
+            for(String s :this.syrup){
+                drink.append(String.format("%n\t\t- %s",s));
+            }
+        }
+        if (!this.toppings.isEmpty()){
+            for(String t :this.toppings){
+                drink.append(String.format("%n\t\t- %s",t));
+            }
+        }
+
         return drink.toString();
     }
 }

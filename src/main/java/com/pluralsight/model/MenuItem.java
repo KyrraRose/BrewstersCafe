@@ -1,6 +1,8 @@
 package com.pluralsight.model;
 
-public abstract class MenuItem {
+import com.pluralsight.ui.FormatItems;
+
+public abstract class MenuItem implements FormatItems {
     protected double price,upCharge;
     protected String item;
 

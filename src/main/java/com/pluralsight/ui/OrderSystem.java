@@ -104,7 +104,7 @@ public class OrderSystem {
             }
 
 
-            if (askConfirm(drink.displayDrink(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
+            if (askConfirm(drink.displayItem(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
                 return drink;
             }
         }
@@ -154,7 +154,7 @@ public class OrderSystem {
                 }
             }
 
-            if (askConfirm(drink.displayDrink(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
+            if (askConfirm(drink.displayItem(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
                 return drink;
             }
         }
@@ -205,7 +205,7 @@ public class OrderSystem {
                 }
             }
 
-            if (askConfirm(drink.displayDrink(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
+            if (askConfirm(drink.displayItem(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
                 return drink;
             }
         }
@@ -251,7 +251,7 @@ public class OrderSystem {
                 }
             }
 
-            if (askConfirm(drink.displayDrink(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
+            if (askConfirm(drink.displayItem(),"Here is the drink you ordered...\n\tCoo..Does it look right?..")) {
                 return drink;
             }
 
@@ -280,21 +280,18 @@ public class OrderSystem {
             }
         }
     }
+
     public static void processAddCookie(){
         if(askConfirm("\tBrewster's Roost Sablé Shortbread Cookie - $.75","Coo...You would like one of my home-made cookies?")){
             boolean toGo = askExtras("Do you want it to go?...");
             receipt.addToReceipt(new Cookie("Roost Sablé Shortbread Cookie",toGo));
         }
     }
+
+    //Checkout
     public static void checkout(){
         System.out.println("Processing!");
     }
 
-    public void displayAllChoices(){
-        for (String type : inventory.getInventory().keySet()) {
-            System.out.printf("%s%s:%s%n",MenuUtility.MINT,type,MenuUtility.RESET);
-            inventory.displayInventory(type);
-        }
-    }
 
 }
