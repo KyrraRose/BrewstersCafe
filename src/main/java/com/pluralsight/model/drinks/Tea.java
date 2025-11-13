@@ -33,32 +33,47 @@ public class Tea extends Drink {
         return addTeaBag;
     }
 
-    public void setAddTeaBag() {
+    public void setAddTeaBag(int numBags) {
         this.addTeaBag = true;
-        this.teaBags += 1;
+        this.teaBags += numBags;
     }
+
+    public double calculateTotal() {
+        this.price = 0;
+        switch(this.size){case "Small"->this.price=1;case "Medium"->this.price=1.5;case "Large"->this.price=2;}
+        if (!this.base.equals("None")){
+            switch(this.size){case "Small"->this.price+=.5;case "Medium"->this.price+=1;case "Large"->this.price+=1.5;}
+        }
+        if(!this.milk.equals("None")){
+            switch(this.size){case "Small"->this.price+=.25;case "Medium"->this.price+=.5;case "Large"->this.price+=.75;}
+        }
+        if (isAddTeaBag()){this.price += .1*(this.teaBags-1);}
+
+        return this.price;
+    }
+
     @Override
     public String displayDrink() {
-        StringBuilder drink = new StringBuilder(String.format("Drink: %s Tea%n\t- %s%n\t- %s",this.temp,this.size,this.base));
+        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Tea%n\t\t- %s",this.size,this.temp,this.base));
         if (isSteamMilk()){
-            drink.append(String.format("%n\t- Steamed %s",this.milk));
+            drink.append(String.format("%n\t\t- Steamed %s",this.milk));
         }
         if (this.addTeaBag){
-            drink.append(String.format("%n\t- %d Tea Bags",this.teaBags));
+            drink.append(String.format("%n\t\t- %d Tea Bags",this.teaBags));
         }
 
         if (!this.syrup.isEmpty()){
             for(String s :this.syrup){
-                drink.append(String.format("%n\t- %s",s));
+                drink.append(String.format("%n\t\t- %s",s));
             }
         }
         if (!this.toppings.isEmpty()){
             for(String t :this.toppings){
-                drink.append(String.format("%n\t- %s",t));
+                drink.append(String.format("%n\t\t- %s",t));
             }
         }
 
-        drink.append(String.format("%nDrink Total: $%.2f",this.price));
+        drink.append(String.format("%nDrink Total: $%.2f",calculateTotal()));
         return drink.toString();
     }
 }

@@ -29,8 +29,7 @@ public class UserInterface {
     public void handleMenuSelection(){
         switch(getUserInt()){
             case 1 ->{ //drink
-                    systemDialogue(TEAL,MINT,"You want to order a drink?...Coo.\n\tWhat would you like? We have...");
-                    systemDialogueLarge(BROWN,BEIGE,displayOptions(DESCRIPTIONS));
+
                     processOrderDrink();}
             case 2 -> {systemDialogue(TEAL,MINT,"You are hungry?...We have bagels...Coo.");
                     processOrderFood();}

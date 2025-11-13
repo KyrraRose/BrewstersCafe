@@ -30,6 +30,7 @@ public class SiphonCoffee extends Drink {
     public boolean isRoomForCream() {
         return roomForCream;
     }
+    @Override
     public double calculateTotal() {
         this.price = 0;
         switch(this.size){case "Small"->this.price=1;case "Medium"->this.price=1.5;case "Large"->this.price=2;}
@@ -46,7 +47,7 @@ public class SiphonCoffee extends Drink {
 
     @Override
     public String displayDrink() {
-        StringBuilder drink = new StringBuilder(String.format("Drink: %s Coffee%n\t\t- %s%n\t\t- %s%n\t\t- %s",this.temp,this.size,this.base,this.milk));
+        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Coffee%n\t\t- %s%n\t\t- %s",this.size,this.temp,this.base,this.milk));
         if (isRoomForCream()){
             drink.append(String.format("%n\t\t- Room for Cream"));
         }

@@ -13,12 +13,18 @@ public class Receipt<T extends MenuItem> {
         this.orderTotal = 0;
     }
 
+
+    // Remove or clear if needed
+    public void clearItems() {
+        this.receipt.clear();
+    }
+
     public void addToReceipt(T item){
         receipt.add(item);
     }
 
     public ArrayList<T> getReceipt() {
-        return receipt;
+        return this.receipt;
     }
 
     public void setReceipt(ArrayList<T> receipt) {

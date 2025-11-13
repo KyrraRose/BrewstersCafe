@@ -47,6 +47,38 @@ public abstract class Drink extends MenuItem {
         this.toppings.add(toppings);
     }
 
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getBase() {
+        return base;
+    }
+
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    public String getMilk() {
+        return milk;
+    }
+
+    public void setMilk(String milk) {
+        this.milk = milk;
+    }
+
+    public void setSyrup(List<String> syrup) {
+        this.syrup = syrup;
+    }
+
+    public void setToppings(List<String> toppings) {
+        this.toppings = toppings;
+    }
+
     @Override
     public double calculateTotal() {
         switch(this.size){case "Small"->this.price=1;case "Medium"->this.price=1.5;case "Large"->this.price=2;}

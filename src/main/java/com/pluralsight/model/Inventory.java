@@ -14,7 +14,7 @@ public class Inventory {
     private Inventory() {
         drinkTypes = new ArrayList<>(List.of("Latte","Siphon Coffee","Tea","Steamer"));
         base = new ArrayList<>(List.of("Espresso","Decaf","House Blend","Earl Grey","Matcha","Chai"));
-        milks = new ArrayList<>(List.of("2% Milk","Whole Milk","Oat Milk","Pigeon Milk","None"));
+        milks = new ArrayList<>(List.of("2% Milk","Whole Milk","Oat Milk","Pigeon Milk","Heavy Whipping Cream"));
         syrups = new ArrayList<>(List.of("Chocolate","Vanilla","Caramel","Toffeenut","Cherry","Hazelnut","Pumpkin Spice","Peppermint","Maple Pecan"));
         toppings = new ArrayList<>(List.of("Whipped Cream","Toffee Sprinkles","Chocolate Shavings","Cinnamon Streusel","Cookie Crumbles"));
         tempTypes = new ArrayList<>(List.of("Hot","Iced","Frozen"));

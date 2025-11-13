@@ -61,7 +61,7 @@ public class Latte extends Drink {
 
     @Override
     public String displayDrink() {
-        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s%n\t\t- %s%n\t\t- %s%n\t\t- %s",this.temp,this.item,this.size,this.base,this.milk));
+        StringBuilder drink = new StringBuilder(String.format("Drink: %s %s Latte%n\t\t- %s%n\t\t- %s",this.size,this.temp,this.base,this.milk));
         if (isDry()){
             drink.append(String.format("%n\t\t- Dry"));
         }
