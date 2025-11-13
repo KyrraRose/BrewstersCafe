@@ -39,15 +39,11 @@ public class Inventory {
     }
 
     public String displayInventory(String type){
-        final String itemFormat = "\t\t[%d] %s";
+        final String itemFormat = "\n\t\t[%d] %s";
         StringBuilder display = new StringBuilder();
-        display.append("✾"+type+":\n");
+        display.append(String.format("✾%s:",type));
         for (int i=1;i<=inventory.get(type).size();i++){
-            if (i == inventory.size()){
-                display.append(String.format(itemFormat,i,inventory.get(type).get(i-1)));
-            }else{
-                display.append(String.format(itemFormat+"\n",i,inventory.get(type).get(i-1)));
-            }
+            display.append(String.format(itemFormat,i,inventory.get(type).get(i-1)));
         }
         return display.toString();
     }

@@ -17,17 +17,17 @@ public class UserInterface {
         systemDialogue(BROWN,BEIGE,displayOptions(MAIN));
     }
     public void handleMainSelection(){
-        switch(MenuUtility.getUserInt(MenuUtility.BEIGE)){case 1 -> displayOrderMenu();case 0 -> exit() ;
+        switch(getUserInt()){case 1 -> displayOrderMenu();case 0 -> exit() ;
         }
     }
     public void displayOrderMenu(){
-        systemDialogue(TEAL,MINT,"You're placing an order?...Coo.%n\t....What would you like?...");
+        systemDialogue(TEAL,MINT,"You're placing an order?...Coo.\n\t....What would you like?...");
         systemDialogue(BROWN,BEIGE,displayOptions(ORDER));
     }
 
 
     public void handleMenuSelection(){
-        switch(MenuUtility.getUserInt(MenuUtility.BEIGE)){
+        switch(getUserInt()){
             case 1 ->{ //drink
                     systemDialogue(TEAL,MINT,"You want to order a drink?...Coo.\n\tWhat would you like? We have...");
                     systemDialogueLarge(BROWN,BEIGE,displayOptions(DESCRIPTIONS));

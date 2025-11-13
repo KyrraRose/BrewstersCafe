@@ -39,9 +39,9 @@ public class MenuUtility {
     }
 
 
-    public static int getUserInt(String color){
+    public static int getUserInt(){
 
-        System.out.printf("%sType Here:%s ",color,MenuUtility.RESET);
+        System.out.printf("%sType Here:%s ",BEIGE,MenuUtility.RESET);
         try {
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -52,11 +52,11 @@ public class MenuUtility {
         }
     }
     public static String getUserString(String prompt){
-        String input = scanner.nextLine().trim();
-        return input;
+        System.out.printf("%s%s%s ",BEIGE,prompt,MenuUtility.RESET);
+        return scanner.nextLine().trim();
     }
     public static boolean getYesNo(String prompt){
-        String input = getUserString(prompt + " (yes/no): ");
+        String input = getUserString(String.format("%s %s(yes/no):%s ",BEIGE,prompt,MenuUtility.RESET));
         boolean yesNo = false;
         switch(input){case "Yes","Y","y","yes","yeah","yep","yea","ok","alright"->yesNo=true;}
         return yesNo;

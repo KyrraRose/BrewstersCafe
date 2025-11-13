@@ -17,6 +17,7 @@ public class MenuOptions {
     public static final List<String> SIZE = new ArrayList<>(List.of("Sizes","Small","Medium","Large"));
     public static final List<String> TEMP = new ArrayList<>(List.of("Styles","Hot","Iced","Frozen"));
 
+
     public static String displayOptions(List<String> menuType){
 
         StringBuilder message = new StringBuilder();
@@ -43,7 +44,6 @@ public class MenuOptions {
                 price +=.5;
             }
         }
-        message.append("\t\t[0] Nevermind. Goodbye!");
         return message.toString();
     }
 
