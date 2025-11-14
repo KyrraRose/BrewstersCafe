@@ -55,14 +55,15 @@ public class Receipt<T extends MenuItem> {
     }
     public String displayReceipt(){
         StringBuilder receipt = new StringBuilder(String.format("\t\t\t\tThe Roost\n\t\t\tRECEIPT - CUSTOMER COPY\n\t\t\t\t\tThank you!\n\t\t\t%10tD %14tr\n\t\t✾Drinks:\n",this.now,this.now));
+
         for (MenuItem i : this.receipt){
-            if (i instanceof Drink){receipt.append(i.formatForReceipt());}
+            if (i instanceof Drink){receipt.append(String.format("%n%s",i.formatForReceipt()));}
         }
-        receipt.append("\n\t\t✾Food Items:");
+        receipt.append("\n\n\t\t✾Food Items:");
         for (MenuItem i : this.receipt){
-            if (i instanceof Food){receipt.append(i.formatForReceipt());}
+            if (i instanceof Food){receipt.append(String.format("%n%s",i.formatForReceipt()));}
         }
-        receipt.append(String.format("\t\t\t\t\t≪ °❈ Total Due: $%-14.2f\n\n\n",getOrderTotal()));
+        receipt.append(String.format("\n\n\t\t\t\t\t≪ °❈ Total Due: $%-14.2f\n\n\n",getOrderTotal()));
         return receipt.toString();
     }
     public void saveReceipt(){
@@ -71,6 +72,7 @@ public class Receipt<T extends MenuItem> {
             buffWriter.write(String.format("%s", ALT_BORDER_T));
             buffWriter.write(displayReceipt());
             buffWriter.write(String.format("%s",ALT_BORDER_B));
+            buffWriter.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

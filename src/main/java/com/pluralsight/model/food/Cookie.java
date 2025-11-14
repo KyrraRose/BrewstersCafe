@@ -7,16 +7,11 @@ public class Cookie extends Food {
         return "";
     }
 
-    public Cookie(String item, boolean toGo) {
-        super(item, toGo);
+    public Cookie(String item) {
+        super(item);
         this.price = .75;
     }
     public String formatForReceipt() {
-        StringBuilder cookie = new StringBuilder(String.format("\t\t\t%s - $.75",this.item));
-        if (isToGo()){
-            cookie.append(String.format("%n\t\t\t\t- To Go"));
-        }else{
-            cookie.append(String.format("%n\t\t\t\t- For Here"));}
-        return cookie.toString();
+        return String.format("\t\t\t%s - $.75", this.item);
     }
 }

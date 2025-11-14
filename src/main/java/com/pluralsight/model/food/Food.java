@@ -5,9 +5,9 @@ import com.pluralsight.model.MenuItem;
 public abstract class Food extends MenuItem {
     protected boolean toGo;
 
-    public Food(String item, boolean toGo) {
+    public Food(String item) {
         super(item);
-        this.toGo = toGo;
+        this.toGo = false;
     }
 
     public boolean isToGo() {

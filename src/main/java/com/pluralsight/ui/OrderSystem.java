@@ -283,8 +283,8 @@ public class OrderSystem {
 
     public static void processAddCookie(){
         if(askConfirm("Roost Sablé Shortbread Cookie - $.75","Coo...You would like a cookie?...\n\tI make them myself..")){
-            boolean toGo = askExtras("Do you want it to go?...");
-            receipt.addToReceipt(new Cookie("Roost Sablé Shortbread Cookie",toGo));
+
+            receipt.addToReceipt(new Cookie("Roost Sablé Shortbread Cookie"));
         }
     }
 
@@ -298,6 +298,7 @@ public class OrderSystem {
             systemDialogue(TEAL,MINT,"Okay...We can start over..Coo.");
             receipt.clearItems();
         }
+
     }
 
 

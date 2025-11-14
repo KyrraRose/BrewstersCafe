@@ -11,7 +11,8 @@ public class UserInterface {
 
 
     public void displayWelcome(){
-        System.out.printf("%s%s%n%s%s%n%s%s%s%n",TEAL,ALT_BORDER_T,MINT,WELCOME_MESSAGE,TEAL,ALT_BORDER_B,RESET);
+        systemDialogue(TEAL,MINT,WELCOME_MESSAGE);
+        pressEnter();
     }
     public void displayMainMenu(){
         systemDialogue(BROWN,BEIGE,displayMenuWithBack(MAIN));
@@ -35,12 +36,23 @@ public class UserInterface {
 
     public void handleMenuSelection(){
         switch(getUserInt()){
-            case 1 ->processOrderDrink();
-            case 2 -> {systemDialogue(TEAL,MINT,"You are hungry?...We have bagels...Coo.");
-                    processOrderFood();}
+            case 1 ->{
+                processOrderDrink();
+                pressEnter();
+            }
+            case 2 -> {
+                systemDialogue(TEAL,MINT,"You are hungry?...We have bagels...Coo.");
+                processOrderFood();
+                pressEnter();
+            }
             case 3 ->{
-                        processAddCookie();}
-            case 4 ->{ checkout();}
+                processAddCookie();
+                pressEnter();
+            }
+            case 4 ->{
+                checkout();
+                pressEnter();
+            }
             case 0 ->{ exit();}
         }
     }

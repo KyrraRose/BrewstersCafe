@@ -6,7 +6,7 @@ public class Bagel extends Food {
     private boolean toasted;
 
     public Bagel( String item, boolean toGo, String portionType) {
-        super(item, toGo);
+        super(item);
         this.portionType = portionType;
         this.toasted = false;
 

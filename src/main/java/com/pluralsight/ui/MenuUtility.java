@@ -5,8 +5,8 @@ import java.util.*;
 public class MenuUtility {
     //I looked up constants after borrowing some of these from the advanced VIS system
     private static final int INVALID_INPUT = -1;
-    public static final String WELCOME_MESSAGE = "\tWelcome to The Roost!\n\tMy name is Brewster....\n\tWhat can I get started for you?...Coo.";
-    private static final String RETURN_TO_MENU_MESSAGE = "Press [ENTER] to return to menu";
+    public static final String WELCOME_MESSAGE = "Welcome to The Roost!\n\tMy name is Brewster....\n\tWhat can I get started for you?...Coo.";
+    private static final String ENTER_TO_CONTINUE = "Press [ENTER] to continue";
     private static final String EXIT_MESSAGE = "Thank you...for visiting The Roost!\n\tCome back soon...Coo.";
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -15,14 +15,14 @@ public class MenuUtility {
 
     public static final String TEAL = "\033[38;2;0;128;128m";
     public static final String BROWN = "\033[38;2;111;78;55m";
-    public static final String BEIGE = "\033[38;2;211;141;80m";
+    public static final String BEIGE = "\033[38;2;253;217;181m";
     public static final String MINT = "\033[38;2;152;255;152m";
 
     //Borders
-    public static final String BORDER_T = "╔═══════════ .✾. ════════════════════ THE ROOST ═════════════════════════════════════════╗\n";
-    public static final String BORDER_B = "\n╚════════════════════════════════════════════════════════════════════════ .✾. ═══════════╝\n";
-    public static final String ALT_BORDER_T = "╔══════ .✾. ════════════════ THE ROOST ═════════════╗\n";
-    public static final String ALT_BORDER_B = "\n╚════════════════════════════════════════ .✾. ══════╝\n";
+    public static final String BORDER_T = "\n╔═══════════ .✾. ════════════════════ THE ROOST ═════════════════════════════════════════╗\n";
+    public static final String BORDER_B = "\n╚════════════════════════════════════════════════════════════════════════ .✾. ═══════════╝";
+    public static final String ALT_BORDER_T = "\n╔══════ .✾. ════════════════ THE ROOST ═════════════╗\n";
+    public static final String ALT_BORDER_B = "\n╚════════════════════════════════════════ .✾. ══════╝";
     public static void border(String border,String color){
         System.out.printf("%s%s%s%n",color,border,MenuUtility.RESET);
     }
@@ -62,7 +62,7 @@ public class MenuUtility {
         return yesNo;
     }
     public static void pressEnter() {
-        System.out.println("\n" + RETURN_TO_MENU_MESSAGE);
+        System.out.println("\n" + ENTER_TO_CONTINUE);
         scanner.nextLine();
     }
 
